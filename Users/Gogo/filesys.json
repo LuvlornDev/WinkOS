@@ -1,0 +1,26 @@
+{
+    "Documents": {
+        "type": "folder",
+        "children": {
+            "Resume.pdf": {
+                "type": "file"
+            },
+            "Projects": {
+                "type": "folder",
+                "children": {
+                    "WinkOS.txt": {
+                        "type": "file"
+                    }
+                }
+            }
+        }
+    },
+    "Music": {
+        "type": "folder",
+        "children": {}
+    },
+    "Pictures": {
+        "type": "folder",
+        "children": {}
+    }
+}

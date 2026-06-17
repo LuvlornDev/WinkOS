@@ -1,36 +1,12 @@
 const root = document.getElementById("winkos");
 let highestZ = 100;
-const filesys = {
-    Desktop: {
-        Documents: {
-            type: "folder",
-            children: {
-                "Resume.pdf": {
-                    type: "file"
-                },
-                Projects: {
-                    type: "folder",
-                    children: {
-                        "WinkOS.txt": {
-                            type: "file"
-                        }
-                    }
-                }
-            }
-        },
-        Pictures: {
-            type: "folder",
-            children: {}
-        },
-        Music: {
-            type: "folder",
-            children: {}
-        },
-        Notepad: {
-            type: "app"
-        }
-    }
-};
+let filesys;
+
+async function loadfilesys() {
+    const response = await fetch("Users/Gogo/filesys.json");
+    filesys = await response.json();
+    desktop();
+}
 
 boot();
 
@@ -70,7 +46,7 @@ function showlogin() {
             </div>
         </div>
     `;
-    document.getElementById("loginbtn").onclick = desktop;
+    document.getElementById("loginbtn").onclick = loadfilesys;
 }
 
 function desktop() {
@@ -102,8 +78,8 @@ function togstartmenu() {
 function loadicons() {
     const container = document.getElementById("desktopicons");
     container.innerHTML = "";
-    for (const name in filesys.Desktop) {
-        const item = filesys.Desktop[name];
+    for (const name in filesys) {
+        const item = filesys[name];
         const icon = document.createElement("div");
         icon.className = "desktopicon";
         if (item.type === "folder") {
