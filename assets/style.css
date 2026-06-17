@@ -1,0 +1,211 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    overflow: hidden;
+    font-family: monospace;
+}
+
+#winkos {
+    width: 100vw;
+    height: 100vh;
+}
+/*boot*/
+#bootscr {
+    width: 100%;
+    height: 100%;
+    background: black;
+    color: white;
+    padding: 20px;
+    font-family: monospace;
+}
+/*login*/
+#loginscr {
+    width: 100%;
+    height: 100%;
+    background: #202020;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#logincard {
+    width: 250px;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+#logincard img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+}
+#logincard button {
+    width: 100%;
+    padding: 10px;
+    cursor: pointer;
+}
+/*desktop*/
+#desktop {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background: steelblue;
+    background-size: cover;
+    background-position: center;
+}
+
+#desktopicons {
+    padding: 10px;
+}
+
+.desktopicon {
+    width: 120px;
+    padding: 10px;
+    border-radius: 8px;
+    color: white;
+    text-align: center;
+    cursor: pointer;
+    margin-bottom: 20px;
+    user-select: none;
+}
+.desktopicon:hover {
+    background: rgba(255, 255, 255, 0.08)
+}
+
+.desktopicon .icon {
+    font-size: 40px;
+}
+.desktopicon span {
+    display: block;
+    margin-top: 5px;
+}
+/*taskbar*/
+#taskbar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    background: #111;
+    display: flex;
+    align-items: center;
+}
+
+#startbtn {
+    width: 80px;
+    height: 100%;
+}
+
+#taskapps {
+    flex: 1;
+    display: flex;
+    gap: 4px;
+    padding-left: 5px;
+}
+
+.taskbtn {
+    height: 32px;
+}
+
+#clock {
+    color: white;
+    padding: 0 10px;
+}
+/*start*/
+#startmenu {
+    position: absolute;
+    bottom: 40px;
+    left: 0;
+    width: 250px;
+    background: white;
+    border: 1px solid black;
+    display: none;
+}
+
+.startitem {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.startitem:hover {
+    background:#ddd;
+}
+/*windows*/
+.window {
+    position: absolute;
+    width: 500px;
+    height: 350px;
+    background: rgba(0, 0, 0, 0.385);
+    border: 1px solid rgb(255, 255, 255);
+    resize: both;
+    overflow: auto;
+    border-radius: 8px;
+}
+
+.titlebar {
+    height: 30px;
+    background: #222;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: move;
+    padding: 0 10px;
+}
+
+.titlebuttons {
+    display: flex;
+    gap: 3px;
+}
+
+.titlebuttons button {
+    width: 25px;
+}
+
+.windowcontent {
+    padding: 10px;
+}
+/*files*/
+.fileitem {
+    padding: 5px;
+    cursor: pointer;
+}
+
+.fileitem:hover {
+    background: #eee;
+}
+
+.folderview {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.foldericon {
+    color: white;
+    width: 120px;
+    padding: 10px;
+    border-radius: 8px;
+    text-align: center;
+    cursor: pointer;
+    user-select: none;
+}
+
+.foldericon:hover {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.foldericon .icon {
+    font-size: 30px;
+}
+
+.foldericon span {
+    display: block;
+    margin-top: 5px;
+    word-wrap: break-word;
+}
