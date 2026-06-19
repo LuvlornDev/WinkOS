@@ -230,6 +230,7 @@ body {
 }
 
 .textviewer {
+    color: white;
     padding: 10px;
     white-space: pre-wrap;
     font-family: monospace;
