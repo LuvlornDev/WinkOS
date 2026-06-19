@@ -2,14 +2,14 @@
     "Documents": {
         "type": "folder",
         "children": {
-            "Resume.pdf": {
-                "type": "file"
+            "Hello.pdf": {
+                "type": "pdf"
             },
             "Projects": {
                 "type": "folder",
                 "children": {
                     "WinkOS.txt": {
-                        "type": "file"
+                        "type": "text"
                     }
                 }
             }
@@ -21,6 +21,10 @@
     },
     "Pictures": {
         "type": "folder",
-        "children": {}
+        "children": {
+            "Me.jpg": {
+                "type": "image"
+            }
+        }
     }
 }

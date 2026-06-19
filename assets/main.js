@@ -1,7 +1,7 @@
 const root = document.getElementById("winkos");
 let highestZ = 100;
 let filesys;
-
+let curruser = "Gogo";
 async function loadfilesys() {
     const response = await fetch("Users/Gogo/filesys.json");
     filesys = await response.json();
@@ -87,7 +87,7 @@ function loadicons() {
                 <div class="icon">/dir</div>
                 <span>${name}</span>
             `;
-            icon.ondblclick = () => openfolder(name, item);
+            icon.ondblclick = () => openfolder(name, item, `Users/${curruser}/${name}`);
         }
         if (item.type === "app") {
             icon.innerHTML = `
@@ -151,10 +151,14 @@ function createwindow(title, content) {
             maximized = false;
         }
     };
+    if (title.endsWith(".pdf")) {
+        win.style.width = "800px";
+        win.style.height = "600px";
+    }
     return win;
 }
 
-function openfolder(name, folder) {
+function openfolder(name, folder, currpath) {
     let html = `<div class="folderview">`;
     for (const childname in folder.children) {
         const child = folder.children[childname];
@@ -180,17 +184,28 @@ function openfolder(name, folder) {
         element.ondblclick = () => {
             const child = folder.children[element.dataset.name];
             if (child.type === "folder") {
-                openfolder(element.dataset.name, child);
+                openfolder(element.dataset.name, child, currpath + "/" + element.dataset.name);
             }
             else if (child.type === "app") {
                 openapp(element.dataset.name);
             }
             else {
-                alert("Opening " + element.dataset.name);
+                openfile(element.dataset.name, child, currpath);
             }
         };
     });
 }
+function openfile(name, file, currpath) {
+    const fullpath = currpath + "/" + name;
+    if (file.type === "pdf") {
+        const win = createwindow(name,`<iframe src="${fullpath}" style="width: 100%; height: 100%; border: none;"></iframe>`);
+        win.style.width = "900px";
+        win.style.height = "700px";
+        return;
+    }
+    alert("(Coming Soon): Unknown file type: " + file.type);
+}
+
 function openapp(name) {
     createwindow(name,
         `
