@@ -209,7 +209,7 @@ function openfile(name, file, currpath) {
         win.style.height = "700px";
         return;
     }
-    else if (file.type === "img") {
+    else if (file.type === "image") {
         const win = createwindow(name,`<iframe src="${fullpath}" style="width: 100%; height: 100%; border: none;"></iframe>`);
         win.style.width = "900px";
         win.style.height = "700px";
