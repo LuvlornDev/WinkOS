@@ -227,8 +227,8 @@ async function opentext(name, file, currpath) {
 function openimage(name, file, currpath) {
     const fullpath = currpath + "/" + name;
     const win = createwindow(name, `<div class="imageviewer"><img class="viewerimage" src="${fullpath}"></div>`);
-    win.style.width = "900px";
-    win.style.height = "700px";
+    win.style.width = "800px";
+    win.style.height = "600px";
     setupzoom(win);
 }
 
@@ -239,7 +239,7 @@ function setupzoom(win) {
     img.onload = () => {
         const fitX = container.clientWidth / img.naturalWidth;
         const fitY = container.clientHeight / img.naturalHeight;
-        zoom = Math.min(fitX, fitY, 1);
+        zoom = 0.1;
         img.style.transform = `scale(${zoom})`;
     };
     img.addEventListener("wheel", e => {
