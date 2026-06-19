@@ -226,6 +226,7 @@ body {
 
 .viewerimage {
     transform-origin: center center;
+    display: block;
 }
 
 .textviewer {

@@ -234,7 +234,14 @@ function openimage(name, file, currpath) {
 
 function setupzoom(win) {
     const img = win.querySelector(".viewerimage");
+    const container = win.querySelector(".imageviewer");
     let zoom = 1;
+    img.onload = () => {
+        const fitX = container.clientWidth / img.naturalWidth;
+        const fitY = container.clientHeight / img.naturalHeight;
+        zoom = Math.min(fitX, fitY, 1);
+        img.style.transform = `scale(${zoom})`;
+    };
     img.addEventListener("wheel", e => {
         e.preventDefault();
         if (e.deltaY < 0) {
@@ -243,7 +250,7 @@ function setupzoom(win) {
         else {
             zoom /= 1.1;
         }
-        zoom = Math.max(0.1, Math.min(zoom, 10));
+        zoom = Math.max(0.05, Math.min(zoom, 20));
         img.style.transform = `scale(${zoom})`;
     });
 }
