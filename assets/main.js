@@ -157,7 +157,11 @@ function createwindow(title, content) {
     }
     return win;
 }
-
+const filehandlers = {
+    pdf: openpdf,
+    text: opentext,
+    image: openimage
+};
 function openfolder(name, folder, currpath) {
     let html = `<div class="folderview">`;
     for (const childname in folder.children) {
@@ -196,26 +200,52 @@ function openfolder(name, folder, currpath) {
     });
 }
 function openfile(name, file, currpath) {
-    const fullpath = currpath + "/" + name;
-    if (file.type === "pdf") {
-        const win = createwindow(name,`<iframe src="${fullpath}" style="width: 100%; height: 100%; border: none;"></iframe>`);
-        win.style.width = "900px";
-        win.style.height = "700px";
-        return;
-    }
-    else if (file.type === "text") {
-        const win = createwindow(name,`<iframe src="${fullpath}" style="width: 100%; height: 100%; border: none;"></iframe>`);
-        win.style.width = "900px";
-        win.style.height = "700px";
-        return;
-    }
-    else if (file.type === "image") {
-        const win = createwindow(name,`<iframe src="${fullpath}" style="width: 100%; height: 100%; border: none;"></iframe>`);
-        win.style.width = "900px";
-        win.style.height = "700px";
+    const handler = filehandlers[file.type];
+    if (handler) {
+        handler(name, file, currpath);
         return;
     }
     alert("(Coming Soon): Unknown file type: " + file.type);
+}
+
+function openpdf(name, file, currpath) {
+    const fullpath = currpath + "/" + name;
+    const win = createwindow(name, `<iframe src="${fullpath}" style="width: 100%; height: 100%; border: none;"></iframe>`);
+    win.style.width = "900px";
+    win.style.height = "700px";
+}
+
+async function opentext(name, file, currpath) {
+    const fullpath = currpath + "/" + name;
+    const response = await fetch(fullpath);
+    const text = await response.text();
+    const win = createwindow(name, `<pre class="textviewer">${text}</pre>`);
+    win.style.width = "800px";
+    win.style.height = "600px";
+}
+
+function openimage(name, file, currpath) {
+    const fullpath = currpath + "/" + name;
+    const win = createwindow(name, `<div class="imageviewer"><img class="viewerimage" src="${fullpath}"></div>`);
+    win.style.width = "900px";
+    win.style.height = "700px";
+    setupzoom(win);
+}
+
+function setupzoom(win) {
+    const img = win.querySelector(".viewerimage");
+    let zoom = 1;
+    img.addEventListener("wheel", e => {
+        e.preventDefault();
+        if (e.deltaY < 0) {
+            zoom *= 1.1;
+        }
+        else {
+            zoom /= 1.1;
+        }
+        zoom = Math.max(0.1, Math.min(zoom, 10));
+        img.style.transform = `scale(${zoom})`;
+    });
 }
 
 function openapp(name) {

@@ -213,3 +213,23 @@ body {
     margin-top: 5px;
     word-wrap: break-word;
 }
+
+.imageviewer {
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #222;
+}
+
+.viewerimage {
+    transform-origin: center center;
+}
+
+.textviewer {
+    padding: 10px;
+    white-space: pre-wrap;
+    font-family: monospace;
+}
