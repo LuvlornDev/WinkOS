@@ -8,23 +8,32 @@
             "Projects": {
                 "type": "folder",
                 "children": {
-                    "WinkOS.txt": {
+                    "hello.txt": {
                         "type": "text"
                     }
                 }
             }
         }
     },
-    "Music": {
-        "type": "folder",
-        "children": {}
-    },
+    
     "Pictures": {
         "type": "folder",
         "children": {
             "Me.jpg": {
                 "type": "image"
             }
+        }
+    },
+    "Videos": {
+        "type": "folder",
+        "children": {
+            
+        }
+    },
+    "Music": {
+        "type": "folder",
+        "children": {
+
         }
     }
 }

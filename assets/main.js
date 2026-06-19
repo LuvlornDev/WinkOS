@@ -203,6 +203,18 @@ function openfile(name, file, currpath) {
         win.style.height = "700px";
         return;
     }
+    else if (file.type === "text") {
+        const win = createwindow(name,`<iframe src="${fullpath}" style="width: 100%; height: 100%; border: none;"></iframe>`);
+        win.style.width = "900px";
+        win.style.height = "700px";
+        return;
+    }
+    else if (file.type === "img") {
+        const win = createwindow(name,`<iframe src="${fullpath}" style="width: 100%; height: 100%; border: none;"></iframe>`);
+        win.style.width = "900px";
+        win.style.height = "700px";
+        return;
+    }
     alert("(Coming Soon): Unknown file type: " + file.type);
 }
 
