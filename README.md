@@ -1,5 +1,7 @@
 # WinkOS!
+
 ![0](https://example.com)
+
 Hello, User.
 And Welcome to WinkOS.
 Sorry.. that sounded cooler in my head...
@@ -8,7 +10,7 @@ People don't drive much attention to it but... I can sense the ton of secrets th
 That's why I hacked into Ø's GitHub and Vercel accounts to upload this...
 Turns out I found a weird looking laptop on this warehouse in the middle of nowhere..
 It had some sort of a custom OS and everything... **WinkOS**.
-It has.. documents, photos, videos, audios of different kinds of stuff. And even from what I've got to see so far.. there may be other users on this laptop...
+It has.. documents, photos, videos, audios of different kinds of stuff. And even from what I've got to see so far... there may be other users on this laptop.
 Sadly, the OS and hard drive were corrupted... But I'm restoring every single bit of this laptop's hard drive.. And I need you to help me find all of the secrets you can get from each version I upload here until I finish repairing the rest...
 
 I believe in you.
@@ -17,8 +19,13 @@ I believe in you.
 
 ## ADVANCEMENTS SO FAR
 ~$ sudo dekorrupter /WinkOS/
+
 //////////STATUS//////////
+
 - 9.54% complete.
+
 //////////STATUS SCREENSHOTS//////////
+
 ![1](https://example.com)
+
 ![2](https://example.com)
