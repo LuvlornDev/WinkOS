@@ -32,14 +32,15 @@ I believe in you.
 
 
 ## ADVANCEMENTS SO FAR
+```
 ~$ sudo dekorrupter /WinkOS/
 
 //////////STATUS//////////
 
 - 9.54% complete.
 
-//////////STATUS SCREENSHOTS//////////
-
+//////////GENERATING STATUS SCREENSHOTS//////////
+```
 ![1](https://example.com)
 
 ![2](https://example.com)
